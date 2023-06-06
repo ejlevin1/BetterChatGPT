@@ -13,7 +13,12 @@ WORKDIR /home/appuser/app
 COPY --chown=appuser:appgroup package.json yarn.lock ./
 RUN yarn install --frozen-lockfile
 COPY --chown=appuser:appgroup . .
-RUN yarn build
+
+# Add init scripts
+COPY --chown=appuser:appgroup ./container/entrypoint.sh /entrypoint.sh
+COPY --chown=appuser:appgroup ./container/container-init.d/* /container-init.d/
 
 EXPOSE 3000
-CMD ["/home/appuser/.yarn/bin/serve", "-s", "dist", "-l", "3000"]
+ENTRYPOINT [ "/entrypoint.sh" ]
+# CMD ["/home/appuser/.yarn/bin/serve", "-s", "dist", "-l", "3000"]
+CMD ["yarn", "dev"]

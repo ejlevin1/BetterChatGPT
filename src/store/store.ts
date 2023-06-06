@@ -101,4 +101,6 @@ const useStore = create<StoreState>()(
   )
 );
 
+window.console.log('apiKey',import.meta.env.VITE_OPENAI_API_KEY || undefined);
+
 export default useStore;

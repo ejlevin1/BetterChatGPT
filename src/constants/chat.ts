@@ -78,7 +78,10 @@ export const _defaultChatConfig: ConfigInterface = {
 export const generateDefaultChat = (
   title?: string,
   folder?: string
-): ChatInterface => ({
+  ) : ChatInterface => {
+    var config = { ...useStore.getState() };
+    window.console.log('config', config);
+    return {
   id: uuidv4(),
   title: title ? title : 'New Chat',
   messages:
@@ -88,7 +91,8 @@ export const generateDefaultChat = (
   config: { ...useStore.getState().defaultChatConfig },
   titleSet: false,
   folder,
-});
+};
+}
 
 export const codeLanguageSubset = [
   'python',
