@@ -22,6 +22,7 @@ get_env_vars_with_prefix() {
 for env_var in $(get_env_vars_with_prefix "VITE_") 
 do
     env_val=$(printenv $env_var)
+	echo "Adding [${env_var} = $(printenv $env_var)]" >&2
     echo "${env_var}=\"${env_val}\"" >> .env
 done
 
