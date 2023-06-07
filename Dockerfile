@@ -20,5 +20,5 @@ COPY --chown=appuser:appgroup ./container/container-init.d/* /container-init.d/
 
 EXPOSE 3000
 ENTRYPOINT [ "/entrypoint.sh" ]
-# CMD ["/home/appuser/.yarn/bin/serve", "-s", "dist", "-l", "3000"]
-CMD ["yarn", "dev"]
+CMD ["/home/appuser/.yarn/bin/serve", "-s", "dist", "-l", "3000"]
+# CMD ["yarn", "dev"]
