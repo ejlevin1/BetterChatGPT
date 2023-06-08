@@ -9,7 +9,7 @@ process_init_files() {
 	for f; do
 		case "$f" in
 			*.sh)
-				[[ ! -x "$f" ]] && echo "Changing exec flag on [$f]" && run_escallated_command chmod +x $f
+				[[ ! -x "$f" ]] && echo "Changing exec flag on [$f]" && chmod +x $f
 
 				if [ -x "$f" ]; then
 					echo "$0: running $f"
