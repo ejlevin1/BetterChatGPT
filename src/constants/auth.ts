@@ -5,4 +5,5 @@ export const defaultAPIEndpoint =
   import.meta.env.VITE_DEFAULT_API_ENDPOINT || officialAPIEndpoint;
 
 console.log(`Using defaultAPIEndpoint ${defaultAPIEndpoint}`)
-export const availableEndpoints = [officialAPIEndpoint, customAPIEndpoint];
+// export const availableEndpoints = [officialAPIEndpoint, customAPIEndpoint];
+export const availableEndpoints = [defaultAPIEndpoint];
